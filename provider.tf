@@ -1,9 +1,3 @@
-#terraform {
-#  required_providers {
-#    vsphere = "1.15.0"
-#  }
-#}
-#
 provider "vsphere" {
   user           = var.vsphere_user
   password       = var.vsphere_password

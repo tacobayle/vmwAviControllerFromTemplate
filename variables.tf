@@ -1,29 +1,19 @@
 variable "vsphere_user" {}
 variable "vsphere_password" {}
 variable "vsphere_server" {}
-
-variable "dc" {
-  default     = "wdc-06-vc12"
-}
-
-variable "cluster" {
-  default     = "wdc-06-vc12c01"
-}
-
-variable "datastore" {
-  default     = "wdc-06-vc12c01-vsan"
-}
-
-variable "networkMgt" {
-  default     = "vxw-dvs-34-virtualwire-3-sid-6120002-wdc-06-vc12-avi-mgmt"
-}
-
-variable "folder" {
-  default     = "NicolasTfControllers"
-}
-
-variable "resource_pool" {
-  default     = "wdc-06-vc12c01/Resources"
+#
+# Other Variables
+#
+variable "vcenter" {
+  type = map
+  default = {
+    dc = "sof2-01-vc08"
+    cluster = "sof2-01-vc08c01"
+    datastore = "sof2-01-vc08c01-vsan"
+    resource_pool = "sof2-01-vc08c01/Resources"
+    folder = "NicTfControllers"
+    networkMgmt = "vxw-dvs-34-virtualwire-3-sid-1080002-sof2-01-vc08-avi-mgmt"
+  }
 }
 
 variable "controller" {
