@@ -68,7 +68,7 @@ i.e, if controller.count == 3, then you need to have:
 
 ## Use the the terraform script to:
 - Create a new folder within v-center
-- Spin up n Avi Controller in the network name called var.networkMgt
+- Spin up n Avi Controller (DHCP or static IP)
 
 ## Run the terraform:
 - to apply the plan
