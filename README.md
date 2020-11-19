@@ -41,14 +41,20 @@ Avi 20.1.1 with one controller node or three controller nodes
 - All the paramaters/variables are stored in variables.tf
 - If you want to use static IP, uncomment the following in controller.tf:
 ```
-#  vapp {
-#    properties = {
-#      "mgmt-ip"     = var.controller["mgmt_ip"]
-#      "mgmt-mask"   = var.controller["mgmt_mask"]
-#      "default-gw"  = var.controller["default_gw"]
-#   }
-#  }
+  vapp {
+    properties = {
+      "mgmt-ip"     = element(var.controller.mgmt_ips, count.index)
+      "mgmt-mask"   = element(var.controller.mgmt_masks, count.index)
+      "default-gw"  = element(var.controller.default_gws, count.index)
+    }
+  }
 ```
+Also, the lists associated with the three variables above need to have length equal to the variable count.
+i.e, if controller.count == 3, then you need to have:
+  - controller.networks with 3 elements like ["netA", "netB", "netC"]
+  - controller.mgmt_ips with 3 elements like ["ipA", "ipB", "ipC"]
+  - controller.mgmt_masks with 3 elements like ["maskA", "maskB", "maskC"]
+  - controller.default_gws with 3 elements like ["gwA", "gwB", "gwC"]
 
 ## Use the the terraform script to:
 - Create a new folder within v-center
@@ -57,7 +63,7 @@ Avi 20.1.1 with one controller node or three controller nodes
 ## Run the terraform:
 - to apply the plan
 ```
-cd ~ ; git clone https://github.com/tacobayle/vmwAviControllerFromTemplate ; cd vmwAviControllerFromTemplate ; terraform init ; terraform apply -auto-approve``
+cd ~ ; git clone https://github.com/tacobayle/vmwAviControllerFromTemplate ; cd vmwAviControllerFromTemplate ; terraform init ; terraform apply -auto-approve
 ```
 - to destroy the plan
 ```
