@@ -39,7 +39,17 @@ Avi 20.1.1 with one controller node or three controller nodes
 
 ## Input/Parameters:
 - All the paramaters/variables are stored in variables.tf
-- If you want to use static IP, uncomment the following in controller.tf:
+- If you want to use DHCP, comment the following in controller.tf:
+```
+#  vapp {
+#    properties = {
+#      "mgmt-ip"     = element(var.controller.mgmt_ips, count.index)
+#      "mgmt-mask"   = element(var.controller.mgmt_masks, count.index)
+#      "default-gw"  = element(var.controller.default_gws, count.index)
+#    }
+#  }
+```
+- If you want to use static IPs, uncomment the following in controller.tf:
 ```
   vapp {
     properties = {
