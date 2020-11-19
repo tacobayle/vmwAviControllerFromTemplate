@@ -1,4 +1,4 @@
-# terraformAviControllerVmw
+# vmwAviControllerFromTemplate
 
 ## Goals
 Spin up n avi Controller in v-center
