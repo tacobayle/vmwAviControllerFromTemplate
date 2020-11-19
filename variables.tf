@@ -16,7 +16,6 @@ variable "vcenter" {
 }
 
 variable "controller" {
-  type = map
   default = {
     cpu = 8
     memory = 24768
