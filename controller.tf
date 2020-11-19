@@ -11,7 +11,7 @@ resource "vsphere_virtual_machine" "controller" {
   folder           = vsphere_folder.folder.path
 
   network_interface {
-    network_id = data.vsphere_network.networks.id
+    network_id = data.vsphere_network.networks[count.index].id
   }
 
   num_cpus = var.controller["cpu"]
