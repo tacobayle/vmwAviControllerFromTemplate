@@ -59,7 +59,7 @@ Avi 20.1.1 with one controller node or three controller nodes
     }
   }
 ```
-Also, the lists associated with the three variables above need to have length equal to the variable count.
+Also, the lists associated with the three variables above need to have a length equal to the variable count.
 i.e, if controller.count == 3, then you need to have:
   - controller.networks with 3 elements like ["netA", "netB", "netC"]
   - controller.mgmt_ips with 3 elements like ["ipA", "ipB", "ipC"]
